@@ -24,8 +24,8 @@ public:
     bool dx7_compat_mode       = false;
     bool midi_settings_dirty   = false;
 
-    RtMidiOut              midi_out = RtMidiOut(RtMidi::WINDOWS_MM);
-    RtMidiIn               midi_in  = RtMidiIn(RtMidi::WINDOWS_MM);
+    RtMidiOut              midi_out = RtMidiOut(RtMidi::UNSPECIFIED);
+    RtMidiIn               midi_in  = RtMidiIn(RtMidi::UNSPECIFIED);
     std::vector<Algorithm> algorithms;
 
     std::vector<std::string> midi_out_port_names;

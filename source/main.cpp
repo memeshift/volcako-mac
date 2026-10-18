@@ -782,10 +782,17 @@ void layout_error_window(AppState& app_state)
     ImGui::EndPopup();
 }
 
-void load_fonts(const ImGuiIO& IO, AppState& app_state)
+void load_fonts(ImGuiIO& IO, AppState& app_state)
 {
     ImFont* main_font = nullptr;
     ImFont* icon_font = nullptr;
+
+    // Rasterise fonts at framebuffer resolution so they stay sharp on HiDPI displays
+    int win_w = 0, fb_w = 0, h = 0;
+    glfwGetWindowSize(glfwGetCurrentContext(), &win_w, &h);
+    glfwGetFramebufferSize(glfwGetCurrentContext(), &fb_w, &h);
+    const float dpi_scale = (win_w > 0 && fb_w > 0) ? float(fb_w) / float(win_w) : 1.0f;
+    IO.FontGlobalScale    = 1.0f / dpi_scale;
 
     const std::vector<std::string> font_locations = {
         "",
@@ -799,7 +806,7 @@ void load_fonts(const ImGuiIO& IO, AppState& app_state)
         const std::string icon_font_path = location + FONT_ICON_FILE_NAME_FAS;
         if (main_font == nullptr && Fileops::file_exists(main_font_path.c_str()))
         {
-            main_font = IO.Fonts->AddFontFromFileTTF(main_font_path.c_str(), FONT_SIZE);
+            main_font = IO.Fonts->AddFontFromFileTTF(main_font_path.c_str(), FONT_SIZE * dpi_scale);
         }
 
         if (icon_font == nullptr && Fileops::file_exists(icon_font_path.c_str()))
@@ -808,7 +815,7 @@ void load_fonts(const ImGuiIO& IO, AppState& app_state)
             ImFontConfig         icons_config;
             icons_config.MergeMode  = true;
             icons_config.PixelSnapH = true;
-            icon_font               = IO.Fonts->AddFontFromFileTTF(icon_font_path.c_str(), 16.0f, &icons_config, icons_ranges);
+            icon_font               = IO.Fonts->AddFontFromFileTTF(icon_font_path.c_str(), 16.0f * dpi_scale, &icons_config, icons_ranges);
         }
     }
 
