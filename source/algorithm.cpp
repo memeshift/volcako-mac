@@ -81,40 +81,40 @@ public:
                     {
                         algo.lines.push_back({ centerx, centery - 0.5f, centerx, centery + 0.5f });
                     }
-                    else if (cell == '┘')
+                    else if (cell == U'\u2518')
                     {
                         algo.lines.push_back({ centerx, centery, centerx, centery - 0.5f });
                         algo.lines.push_back({ centerx - 0.5f, centery, centerx, centery });
                         // extra left
                         algo.lines.push_back({ centerx - 0.5f, centery, centerx - 1.5f, centery });
                     }
-                    else if (cell == '└')
+                    else if (cell == U'\u2514')
                     {
                         algo.lines.push_back({ centerx, centery, centerx, centery - 0.5f });
                         algo.lines.push_back({ centerx, centery, centerx + 0.5f, centery });
                         // extra right
                         algo.lines.push_back({ centerx + 0.5f, centery, centerx + 1.5f, centery });
                     }
-                    else if (cell == '┐')
+                    else if (cell == U'\u2510')
                     {
                         algo.lines.push_back({ centerx - 0.5f, centery, centerx, centery });
                         algo.lines.push_back({ centerx, centery, centerx, centery + 0.5f });
                         // extra left
                         algo.lines.push_back({ centerx - 0.5f, centery, centerx - 1.5f, centery });
                     }
-                    else if (cell == '┌')
+                    else if (cell == U'\u250C')
                     {
                         algo.lines.push_back({ centerx, centery, centerx + 0.5f, centery });
                         algo.lines.push_back({ centerx, centery, centerx, centery + 0.5f });
                         // extra right
                         algo.lines.push_back({ centerx + 0.5f, centery, centerx + 1.5f, centery });
                     }
-                    else if (cell == '├')
+                    else if (cell == U'\u251C')
                     {
                         algo.lines.push_back({ centerx, centery - 0.5f, centerx, centery + 0.5f });
                         algo.lines.push_back({ centerx, centery, centerx + 0.5f, centery });
                     }
-                    else if (cell == '┼')
+                    else if (cell == U'\u253C')
                     {
                         algo.lines.push_back({ centerx - 0.5f, centery, centerx + 0.5f, centery });
                         algo.lines.push_back({ centerx, centery - 0.5f, centerx, centery + 0.5f });
@@ -207,7 +207,7 @@ std::vector<Algorithm> Algorithm::build_algorithms()
         ' ', ' ', '|',
         '2', '4', '5',
         '|', '|', '|',
-        '1', '3', '┘' }, 6, 6);
+        '1', '3', U'\u2518' }, 6, 6);
 
     //Algo 8
     builder.build(3, {
@@ -215,7 +215,7 @@ std::vector<Algorithm> Algorithm::build_algorithms()
         ' ', ' ', '|',
         '2', '4', '5',
         '|', '|', '|',
-        '1', '3', '┘' }, 4, 4);
+        '1', '3', U'\u2518' }, 4, 4);
 
     //Algo 9
     builder.build(3, {
@@ -223,7 +223,7 @@ std::vector<Algorithm> Algorithm::build_algorithms()
         ' ', ' ', '|',
         '2', '4', '5',
         '|', '|', '|',
-        '1', '3', '┘' }, 2, 2);
+        '1', '3', U'\u2518' }, 2, 2);
 
     //Algo 10
     builder.build(3, {
@@ -231,7 +231,7 @@ std::vector<Algorithm> Algorithm::build_algorithms()
         ' ', ' ', '|',
         '5', '6', '2',
         '|', '|', '|',
-        '└', '4', '1' }, 3, 3);
+        U'\u2514', '4', '1' }, 3, 3);
 
     //Algo 11
     builder.build(3, {
@@ -239,32 +239,32 @@ std::vector<Algorithm> Algorithm::build_algorithms()
         ' ', ' ', '|',
         '5', '6', '2',
         '|', '|', '|',
-        '└', '4', '1' }, 6, 6);
+        U'\u2514', '4', '1' }, 6, 6);
 
     //Algo 12
     builder.build(4, {
         '4', '5', '6', '2',
         '|', '|', '|', '|',
-        '└', '3', '┘', '1', }, 2, 2);
+        U'\u2514', '3', U'\u2518', '1', }, 2, 2);
 
     //Algo 13
     builder.build(4, {
         '4', '5', '6', '2',
         '|', '|', '|', '|',
-        '└', '3', '┘', '1', }, 6, 6);
+        U'\u2514', '3', U'\u2518', '1', }, 6, 6);
 
     //Algo 14
     builder.build(3, {
         ' ', '6', '5',
         ' ', '|', '|',
-        '2', '4', '┘',
+        '2', '4', U'\u2518',
         '|', '|', ' ',
         '1', '3', ' ' }, 6, 6);
 
     //Algo 15
     builder.build(3, {
         ' ', '6', '5',
-        ' ', '├', '┘',
+        ' ', U'\u251C', U'\u2518',
         '2', '4', ' ',
         '|', '|', ' ',
         '1', '3', ' ' }, 2, 2);
@@ -275,7 +275,7 @@ std::vector<Algorithm> Algorithm::build_algorithms()
         ' ', '|', '|',
         '2', '3', '5',
         '|', '|', '|',
-        '└', '1', '┘' }, 6, 6);
+        U'\u2514', '1', U'\u2518' }, 6, 6);
 
     //Algo 17
     builder.build(3, {
@@ -283,7 +283,7 @@ std::vector<Algorithm> Algorithm::build_algorithms()
         ' ', '|', '|',
         '2', '3', '5',
         '|', '|', '|',
-        '└', '1', '┘' }, 2, 2);
+        U'\u2514', '1', U'\u2518' }, 2, 2);
 
     //Algo 18
     builder.build(3, {
@@ -293,63 +293,63 @@ std::vector<Algorithm> Algorithm::build_algorithms()
         ' ', ' ', '|',
         '2', '3', '4',
         '|', '|', '|',
-        '└', '1', '┘' }, 3, 3);
+        U'\u2514', '1', U'\u2518' }, 3, 3);
 
     //Algo 19
     builder.build(3, {
         '3', ' ', ' ',
         '|', ' ', ' ',
         '2', '6', ' ',
-        '|', '├', '┐',
+        '|', U'\u251C', U'\u2510',
         '1', '4', '5' }, 6, 6);
 
     //Algo 20
     builder.build(4, {
         '3', ' ', '5', '6',
-        '├', '┐', '|', '|',
-        '1', '2', '└', '4' }, 3, 3);
+        U'\u251C', U'\u2510', '|', '|',
+        '1', '2', U'\u2514', '4' }, 3, 3);
 
     //Algo 21
     builder.build(4, {
         '3', ' ', '6', ' ',
-        '├', '┐', '├', '┐',
+        U'\u251C', U'\u2510', U'\u251C', U'\u2510',
         '1', '2', '4', '5' }, 3, 3);
 
     //Algo 22
     builder.build(4, {
         '2', ' ', '6', ' ',
-        '|', '┌', '┼', '┐',
+        '|', U'\u250C', U'\u253C', U'\u2510',
         '1', '3', '4', '5' }, 6, 6);
 
     //Algo 23
     builder.build(4, {
         ' ', '3', '6', ' ',
-        ' ', '|', '├', '┐',
+        ' ', '|', U'\u251C', U'\u2510',
         '1', '2', '4', '5' }, 6, 6);
 
     //Algo 24
     builder.build(5, {
         ' ', ' ', ' ', '6', ' ',
-        ' ', ' ', '┌', '┼', '┐',
+        ' ', ' ', U'\u250C', U'\u253C', U'\u2510',
         '1', '2', '3', '4', '5' }, 6, 6);
 
     //Algo 25
     builder.build(5, {
         ' ', ' ', ' ', '6', ' ',
-        ' ', ' ', ' ', '├', '┐',
+        ' ', ' ', ' ', U'\u251C', U'\u2510',
         '1', '2', '3', '4', '5' }, 6, 6);
 
     //Algo 26
     builder.build(4, {
         ' ', '3', '5', '6',
         ' ', '|', '|', '|',
-        '1', '2', '└', '4' }, 6, 6);
+        '1', '2', U'\u2514', '4' }, 6, 6);
 
     //Algo 27
     builder.build(4, {
         ' ', '3', '5', '6',
         ' ', '|', '|', '|',
-        '1', '2', '└', '4' }, 3, 3);
+        '1', '2', U'\u2514', '4' }, 3, 3);
 
     //Algo 28
     builder.build(3, {

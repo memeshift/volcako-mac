@@ -6,7 +6,11 @@
 *.vcxproj.filters
 .vs
 bin/
+lastbank.syx
 lastpreset.txt
 obj/
 out/
 settings.ini
+.DS_Store
+build/
+/volcako
